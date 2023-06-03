@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import css from 'components/ContactForm/ContactForm.styled';
 
@@ -70,5 +71,7 @@ const ContactForm = ({ addContact }) => {
     </Formik>
   );
 };
+
+ContactForm.propTypes = { addContact: PropTypes.func.isRequired };
 
 export default ContactForm;
