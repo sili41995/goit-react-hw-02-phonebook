@@ -1,17 +1,4 @@
 import styled from '@emotion/styled';
-
-const Form = styled.form`
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  border: 1px solid black;
-`;
-
-const Input = styled.input`
-  width: 300px;
-`;
-
 const Label = styled.label``;
 
 const Button = styled.button`
@@ -23,6 +10,11 @@ const Button = styled.button`
   }
 `;
 
-const css = { Form, Input, Label, Button };
+const ErrorText = styled.p`
+  color: red;
+  font-weight: 700;
+`;
+
+const css = { Label, Button, ErrorText };
 
 export default css;
