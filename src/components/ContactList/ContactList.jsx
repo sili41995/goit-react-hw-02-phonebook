@@ -1,3 +1,4 @@
+import Contact from 'components/Contact/Contact';
 import filteredContacts from 'utils/filteredContacts';
 
 const ContactList = ({ contacts, filter, handleDelBtnClick }) => {
@@ -5,19 +6,12 @@ const ContactList = ({ contacts, filter, handleDelBtnClick }) => {
   return (
     <ul>
       {visibleContacts.map(({ id, name, number }) => (
-        <li key={id}>
-          <span>
-            {name}: {number}
-          </span>
-          <button
-            type='button'
-            onClick={() => {
-              handleDelBtnClick(id);
-            }}
-          >
-            Delete
-          </button>
-        </li>
+        <Contact
+          key={id}
+          name={name}
+          number={number}
+          handleDelBtnClick={() => handleDelBtnClick(id)}
+        />
       ))}
     </ul>
   );
