@@ -1,0 +1,47 @@
+import { nanoid } from 'nanoid';
+import { Formik, Form, Field } from 'formik';
+import { validateName, validateNumber } from 'utils/validateFields';
+import { Container, Input, Label } from './ContactForm.styled';
+
+const INITIAL_STATE = { name: '', number: '' };
+
+const nameId = nanoid();
+const numberId = nanoid();
+
+const ContactForm = ({ handleFormSubmit }) => {
+  return (
+    <Container>
+      <Formik initialValues={INITIAL_STATE} onSubmit={handleFormSubmit}>
+        {({ errors, touched }) => (
+          <Form>
+            <div>
+              <Label htmlFor={nameId}>Name</Label>
+              <Input
+                id={nameId}
+                type='text'
+                name='name'
+                validate={validateName}
+                required
+              />
+              {errors.name && touched.name && <div>{errors.name}</div>}
+            </div>
+            <div>
+              <Label htmlFor={numberId}>Number</Label>
+              <Input
+                id={numberId}
+                type='tel'
+                name='number'
+                validate={validateNumber}
+                required
+              />
+              {errors.number && touched.number && <div>{errors.number}</div>}
+            </div>
+            <button type='submit'>Add contact</button>
+          </Form>
+        )}
+      </Formik>
+    </Container>
+  );
+};
+
+export default ContactForm;
