@@ -1,12 +1,13 @@
 import { nanoid } from 'nanoid';
+import { Label, Input } from './Filter.styled';
 
 const filterId = nanoid();
 
 const Filter = ({ handleFilterChange, filter }) => {
   return (
     <>
-      <label htmlFor={filterId}>Find contacts by name</label>
-      <input
+      <Label htmlFor={filterId}>Find contacts by name</Label>
+      <Input
         id={filterId}
         type='text'
         value={filter}

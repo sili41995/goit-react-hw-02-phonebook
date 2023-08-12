@@ -1,12 +1,14 @@
+import { Item } from './Contact.styled';
+
 const Contact = ({ name, number, handleDelBtnClick }) => (
-  <li>
+  <Item>
     <span>
       {name}: {number}
     </span>
     <button type='button' onClick={handleDelBtnClick}>
       Delete
     </button>
-  </li>
+  </Item>
 );
 
 export default Contact;

@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
 import { validateName, validateNumber } from 'utils/validateFields';
-import { Container, Input, Label } from './ContactForm.styled';
+import { Container, Input, Label, Error } from './ContactForm.styled';
 
 const INITIAL_STATE = { name: '', number: '' };
 
@@ -23,7 +23,7 @@ const ContactForm = ({ handleFormSubmit }) => {
                 validate={validateName}
                 required
               />
-              {errors.name && touched.name && <div>{errors.name}</div>}
+              {errors.name && touched.name && <Error>{errors.name}</Error>}
             </div>
             <div>
               <Label htmlFor={numberId}>Number</Label>
@@ -34,7 +34,9 @@ const ContactForm = ({ handleFormSubmit }) => {
                 validate={validateNumber}
                 required
               />
-              {errors.number && touched.number && <div>{errors.number}</div>}
+              {errors.number && touched.number && (
+                <Error>{errors.number}</Error>
+              )}
             </div>
             <button type='submit'>Add contact</button>
           </Form>
