@@ -1,23 +1,19 @@
 import PropTypes from 'prop-types';
 import Contact from 'components/Contact';
-import filteredContacts from 'utils/filteredContacts';
 import { List } from './ContactList.styled';
 
-const ContactList = ({ contacts, filter, handleDelBtnClick }) => {
-  const visibleContacts = filteredContacts(filter, contacts);
-  return (
-    <List>
-      {visibleContacts.map(({ id, name, number }) => (
-        <Contact
-          key={id}
-          name={name}
-          number={number}
-          handleDelBtnClick={() => handleDelBtnClick(id)}
-        />
-      ))}
-    </List>
-  );
-};
+const ContactList = ({ contacts, handleDelBtnClick }) => (
+  <List>
+    {contacts.map(({ id, name, number }) => (
+      <Contact
+        key={id}
+        name={name}
+        number={number}
+        handleDelBtnClick={() => handleDelBtnClick(id)}
+      />
+    ))}
+  </List>
+);
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(

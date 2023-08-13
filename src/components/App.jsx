@@ -5,6 +5,7 @@ import ContactForm from 'components/ContactForm';
 import Filter from 'components/Filter';
 import ContactList from 'components/ContactList';
 import Section from 'components/Section';
+import filteredContacts from 'utils/filteredContacts';
 
 class App extends Component {
   state = { contacts: [], filter: '' };
@@ -36,6 +37,7 @@ class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
+    const visibleContacts = filteredContacts(filter, contacts);
 
     return (
       <Section>
@@ -47,8 +49,7 @@ class App extends Component {
           handleFilterChange={this.handleFilterChange}
         />
         <ContactList
-          contacts={contacts}
-          filter={filter}
+          contacts={visibleContacts}
           handleDelBtnClick={this.handleDelBtnClick}
         />
       </Section>
