@@ -23,7 +23,6 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
     })
   ).isRequired,
-  filter: PropTypes.string.isRequired,
   handleDelBtnClick: PropTypes.func.isRequired,
 };
 
